@@ -1,0 +1,64 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="utf-8" />  
+  <title>Patreon OAuth Demo</title>  
+    
+  <!-- Tailwind CSS (CDN) -->  
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">  
+    
+  <!-- Optional: Glitch Tracking Script (Add only after user opts in) -->  
+  <!-- See "5. Glitch Integration" below for instructions. -->  
+    
+</head>  
+<body class="bg-gray-100 h-screen flex flex-col items-center justify-center">  
+    
+  <!-- A simple banner for user data-collection consent -->  
+  <div id="tracking-banner" class="bg-blue-500 text-white p-4 mb-6 rounded shadow-md max-w-xl hidden">  
+    <p>We value your privacy. Opt-in to analytics tracking and help us improve!</p>  
+    <div class="flex space-x-4 mt-2">  
+      <button onclick="enableTracking()" class="bg-blue-700 px-4 py-2 rounded">Yes, track me</button>  
+      <button onclick="hideBanner()" class="bg-white text-blue-600 px-4 py-2 rounded">No, thanks</button>  
+    </div>  
+  </div>  
+    
+  <div class="bg-white rounded shadow p-8 max-w-md w-full text-center">  
+    <h1 class="text-2xl font-bold mb-4">Patreon OAuth Demo</h1>  
+      
+    <p class="mb-4">Click below to sign in with Patreon and retrieve your access token.</p>  
+      
+    <a href="/auth" class="inline-block bg-green-600 text-white px-6 py-3 rounded   
+                       hover:bg-green-700 transition-all">  
+      Log in with Patreon  
+    </a>  
+  </div>  
+    
+  <script>  
+    // Show the tracking banner. In real usage, you might store  
+    // a cookie or localStorage value to avoid showing it again  
+    // if the user has already chosen.  
+    document.getElementById('tracking-banner').classList.remove('hidden');  
+  
+    function enableTracking() {  
+      // 1) Insert the Glitch script dynamically  
+      var script = document.createElement('script');  
+      script.src = "https://api.glitch.fun/js/game-analytics.js";  
+      script.async = true;  
+      // Replace with your own data-title-id and data-tracking-token  
+      script.setAttribute('data-title-id', 'title_id');  
+      script.setAttribute('data-tracking-token', 'token');  
+        
+      // 2) Prevent an existing script from being added again  
+      if (!document.querySelector('[src="https://api.glitch.fun/js/game-analytics.js"]')) {  
+        document.head.prepend(script);  
+      }  
+        
+      hideBanner();  
+    }  
+  
+    function hideBanner() {  
+      document.getElementById('tracking-banner').classList.add('hidden');  
+    }  
+  </script>  
+</body>  
+</html>  
