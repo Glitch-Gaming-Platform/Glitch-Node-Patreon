@@ -10,7 +10,7 @@ Below you’ll find:
     *   [Glitch-Godot-Patreon](https://github.com/Glitch-Gaming-Platform/Glitch-Godot-Patreon/tree/main)
     *   [Glitch-Unity-Patreon](https://github.com/Glitch-Gaming-Platform/Glitch-Unity-Patreon)
     *   [Glitch-Unreal-Patreon](https://github.com/Glitch-Gaming-Platform/Glitch-Unreal-Patreon)
-5.  **Glitch Integration** info, including the Glitch website tracking script and an optional “opt-in” banner for user tracking consent.
+5.  **Glitch Integration (Optional)** info, including the Glitch website tracking script and an optional “opt-in” banner for user tracking consent.
 
 ---
 
@@ -22,6 +22,7 @@ Below you’ll find:
 4.  Your **backend** exchanges this `code` for an *access token* (and possibly a refresh token).
 5.  The **backend** then returns the access token to your **frontend**, or stores it for future use.
 6.  The **frontend** displays success to the user, and optionally writes the token somewhere secure (e.g., your GitHub repos or your plugin configuration).
+7.  The user can then use the access token to play your game once it confirms they have a subscription to the right Patreon teir (see the other repos on validating the token).
 
 > **Important:** For production, do **not** embed your **Client Secret** in any distributed build. Use server-side or secure environment storage.
 
@@ -89,7 +90,7 @@ When the user successfully authenticates, they are redirected to a page that dis
 
 ## 4. How to Store the Resulting Token
 
-The access token returned is what you will use to make authenticated requests to the Patreon API on behalf of the user. For your game, you would need to securely store this token. How you do this will depend on your game engine and backend infrastructure.
+The access token returned is what you will use to make authenticated requests to the Patreon API on behalf of the user. For your game, you can give this the user directly and tell them to store it in a secure location, or your game would need to securely store this token. How you do this will depend on your game engine and backend infrastructure.
 
 ---
 
