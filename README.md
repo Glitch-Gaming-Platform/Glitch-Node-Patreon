@@ -1,6 +1,6 @@
 # Small OAuth Application for Patreon Access Tokens
 
-This repository contains a small example application (frontend + backend) demonstrating how users can log in with Patreon (via OAuth), retrieve an **access token**, and then store that token wherever needed—such as in your Glitch-based Godot, Unity, or Unreal projects.
+This repository contains a small example application (frontend + backend) demonstrating how users can log in with Patreon (via OAuth), retrieve an **access token**, and then store that token wherever needed—such as in your Game with Godot, Unity, or Unreal projects. The goal is be able to accept payment and restrict access with Patreon, and prevent users from playing the game unless they are subscriber. With this approach, you can also have wider distribution because players can download the game anywhere but will face the same restrictions.
 
 Below you’ll find:
 1.  **Overview** of the OAuth flow.
@@ -93,9 +93,9 @@ The access token returned is what you will use to make authenticated requests to
 
 ---
 
-## 5. Glitch Integration
+## 5. Glitch Integration (Optional)
 
-The provided `public/index.html` includes an optional banner for users to opt-in to analytics tracking with Glitch. The `enableTracking()` function dynamically adds the Glitch tracking script to the page. Remember to replace the placeholder `data-title-id` and `data-tracking-token` with your actual Glitch project details.
+The provided `public/index.html` includes an optional banner for users to opt-in to analytics tracking with [Glitch](https://www.glitch.fun/). The `enableTracking()` function dynamically adds the Glitch tracking script to the page. Remember to replace the placeholder `data-title-id` and `data-tracking-token` with your actual Glitch project details. The purpose of this tracking implementation for if you do paid campaigns, use can use this as a touch point to fingerprint users and improve the data is sent to conversion apis to that will lower your player acquistion costs.
 
 ### What's Missing?
 
